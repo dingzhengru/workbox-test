@@ -1,0 +1,21 @@
+{
+  "name": "Work Box Test",
+  "short_name": "wb-test",
+  "description": "描述這個應用程式是做什麼的",
+  "theme_color": "#b87819",
+  "icons": [
+    {
+      "src": "./img/test-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, 
+    {
+      "src": "./img/test-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#000000"
+}

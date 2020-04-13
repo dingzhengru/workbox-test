@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Work box test</title>
+  <link rel="stylesheet" type="text/css" href="./css/import-01.css">
+
+
+  <link rel="manifest" href="./manifest.json">
+
+</head>
+<body>
+  <h1>work box test</h1>
+
+
+
+<script src="./js/import-01.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+  // Check that service workers are supported
+  if ('serviceWorker' in navigator) {
+
+    // Use the window load event to keep the page load performant
+
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+    })
+  }
+</script>
+</body>
+</html>
