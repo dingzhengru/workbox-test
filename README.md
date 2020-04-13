@@ -1,7 +1,7 @@
 # workbox-test
 
 
-## Run this Test
+* Run this Test
 
 ```
 npm install
