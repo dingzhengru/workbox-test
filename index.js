@@ -13,10 +13,11 @@ app.use(express.json()) // for parsing application/json
 // app.use(cors(corsOptions))
 app.use(cors())
 
-app.use(express.static(__dirname))
+// app.use(express.static(path.join(__dirname, 'dist')))
 
+app.use(express.static('.'))
 
-app.get('*', (req, res, next) => {
+app.get('/', (req, res, next) => {
   res.sendFile(path.join(__dirname, 'index.html'))
 })
 

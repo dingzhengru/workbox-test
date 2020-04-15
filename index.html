@@ -4,28 +4,65 @@
   <meta charset="UTF-8">
   <title>Work box test</title>
   <link rel="stylesheet" type="text/css" href="./css/import-01.css">
-
-
   <link rel="manifest" href="./manifest.json">
-
 </head>
 <body>
-  <h1>work box test</h1>
-
+  <h1>work box 123123</h1>
 
 
 <script src="./js/import-01.js"></script>
+<script src="../../node_modules/vue/dist/vue.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script>
-  // Check that service workers are supported
+<script type="module">
+  
+  import { register } from './node_modules/register-service-worker/index.js'
+
   if ('serviceWorker' in navigator) {
-
-    // Use the window load event to keep the page load performant
-
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
+    register(`./sw.js`, {
+      ready (registration) {
+        console.log('Service worker is active.')
+      },
+      registered (registration) {
+        console.log('Service worker has been registered.')
+      },
+      cached (registration) {
+        console.log('Content has been cached for offline use.')
+      },
+      updatefound (registration) {
+        console.log('New content is downloading.')
+      },
+      updated (registration) {
+        console.log('New content is available; please refresh.')
+        // window.location.reload(true)
+      },
+      offline () {
+        console.log('No internet connection found. App is running in offline mode.')
+      },
+      error (error) {
+        console.error('Error during service worker registration:', error)
+      }
     })
   }
+  // Check that service workers are supported
+  // if ('serviceWorker' in navigator) {
+
+  //   // Use the window load event to keep the page load performant
+
+  //   window.addEventListener('load', () => {
+  //     navigator.serviceWorker.register('./sw.js').then(function(registration) {
+
+  //       console.log(registration)
+
+  //       registration.addEventListener('updatefound', function() {
+  //         console.log('updatefound')
+  //         const installingWorker = registration.installing
+
+  //         console.log('A new service worker is being installed:', installingWorker)
+  //       })
+  //     })
+  //   })
+  // }
+
 </script>
 </body>
 </html>
