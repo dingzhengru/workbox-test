@@ -52,13 +52,13 @@ self.addEventListener('fetch', event => {
 *  文件: https://developers.google.com/web/tools/workbox/modules/workbox-cli
 *  wizard: 按數個問題回答產生相應的 workbox-config.js(檔案名稱可自訂)
 *  generateSW: Generates a complete service worker for you.
-  *  You want to precache files.
-  *  You have simple runtime configuration needs (e.g. the configuration allows you to define routes and strategies).
+    *  You want to precache files.
+    *  You have simple runtime configuration needs (e.g. the configuration allows you to define routes and strategies).
 *  injectManifest: Injects the assets to precache into your project.
-  *  You want more control over your service worker.
-  *  You want to precache files.
-  *  You have more complex needs in terms of routing.
-  *  You would like to use your service worker with other API's (e.g. Web Push).
+    *  You want more control over your service worker.
+    *  You want to precache files.
+    *  You have more complex needs in terms of routing.
+    *  You would like to use your service worker with other API's (e.g. Web Push).
 *  copyLibraries: Copy the Workbox libraries into a directory.
 
 ```bash
