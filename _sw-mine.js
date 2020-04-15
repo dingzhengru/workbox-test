@@ -58,16 +58,6 @@ workbox.routing.registerRoute(
 )
 
 self.addEventListener('install', function() {
-  // console.log('self addEventListener: install')
-
   // skipWaiting 可以跳過等待，直接套用最新的快取
   self.skipWaiting()
 })
-
-// self.addEventListener('activate', function() {
-//   // console.log('self addEventListener: activate')
-// })
-
-// self.addEventListener('fetch', event => {
-//   // console.log('self addEventListener: fetch', event)
-// })
