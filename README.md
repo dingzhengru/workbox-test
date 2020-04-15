@@ -13,8 +13,12 @@ npm start
 * StaleWhileRevalidate: 若有快取則使用快取，不過無論與否，都會發送 req 將其 res 把 cache 更新(下次進來時，cache 已是新的)
 * CacheFirst: 有 cache 就不會去發送 req
 * NetworkFirst: 發送 req 失敗才會使用 cache
-* NetworkOnly: 有無 cache 都只使用 req 回來的 res
+* NetworkOnly: 完全不用 & 不存快取
 * CacheOnly: 只使用 cache，不會發送 req
+* 其實應該還算有一種，Precaching(預緩存): https://developers.google.com/web/tools/workbox/modules/workbox-precaching
+    *  其他策略都會於 sw 安裝時才抓取 cache，Precaching 會在 sw 安裝前就開始抓取
+    *  Precaching 會於 sw 註冊 &  sw 更新時更新 cache
+
 
 ## 快取筆記
 *  快取更新的方式，是看 service-worker.js(sw.js) 檔案是否更新，且會根據 skipWaiting 設定決定是否馬上套用更新

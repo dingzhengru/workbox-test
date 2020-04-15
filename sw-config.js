@@ -44,12 +44,12 @@ workbox.routing.registerRoute(
   })
 )
 // cache index.html page
-workbox.routing.registerRoute(
-  /\/$/,
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'index-cache'
-  })
-)
+// workbox.routing.registerRoute(
+//   /\/$/,
+//   new workbox.strategies.CacheFirst({
+//     cacheName: 'index-cache'
+//   })
+// )
 
 self.addEventListener('install', function() {
   // skipWaiting 可以跳過等待，直接套用最新的快取
