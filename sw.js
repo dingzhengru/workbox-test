@@ -116,7 +116,7 @@ define("./sw.js",['./workbox-ad578afd'], function (workbox) { 'use strict';
     "revision": "e32f439a9abb1b28d86c01cdce89db4c"
   }, {
     "url": "index.html",
-    "revision": "35082545769ab20762547cb369b2c3e9"
+    "revision": "8ec64cdfbeac61691d2b68134b09e751"
   }, {
     "url": "index.js",
     "revision": "849a55f57a202aa695f686bd4d661c3a"
@@ -124,9 +124,52 @@ define("./sw.js",['./workbox-ad578afd'], function (workbox) { 'use strict';
     "url": "js/import-01.js",
     "revision": "76131693af2210c342d38f828d3864db"
   }, {
+    "url": "manifest.json",
+    "revision": "dce76cacffeb3c097eef729d16b79a63"
+  }, {
+    "url": "package-lock.json",
+    "revision": "cea8657aa1684f276410c340582cd7b5"
+  }, {
+    "url": "package.json",
+    "revision": "87554b67dd8e509f4baecff94a3fe3f2"
+  }, {
     "url": "server.js",
     "revision": "2cc7643f9c048aa0d7c3bc8d98289dc2"
   }], {});
 
 });
 //# sourceMappingURL=sw.js.map
+
+
+self.addEventListener('install', event => {
+  console.log('installing')
+
+  event.waitUntil(
+    caches.open('jquery-cache').then(cache => cache.add('https://code.jquery.com/jquery-3.4.1.min.js'))
+  )
+});
+
+self.addEventListener('fetch', event => {
+  const url = new URL(event.request.url)
+
+  // console.log(url.origin, url.pathname)
+
+  if(url.origin != location.origin) {
+    console.log('fetch', url.pathname, event.request)
+
+    // 這種寫法，對 cors 的也OK
+    event.respondWith(async function() {
+        console.log('event.request', event.request)
+
+        // Try to get the response from a cache.
+        const cachedResponse = await caches.match(event.request)
+        // Return it if we found one.
+        if (cachedResponse) {
+          console.log('cachedResponse', cachedResponse)
+          return cachedResponse
+        }
+        // If we didn't find a match in the cache, use the network.
+        return fetch(event.request)
+    }())
+  }
+})
