@@ -46,7 +46,7 @@ workbox.routing.registerRoute(
 // cache index.html page
 workbox.routing.registerRoute(
   /\/$/,
-  new workbox.strategies.CacheFirst({
+  new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'index-cache'
   })
 )
