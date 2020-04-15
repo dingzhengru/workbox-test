@@ -6,6 +6,8 @@ if (workbox) {
   console.log(`Boo! Workbox didn't load 😬`)
 }
 
+const sw_version = '1.0.1'
+
 // workbox.setConfig({ debug: false})
 
 workbox.routing.registerRoute(
@@ -24,35 +26,35 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   /.*\.json/,
-  new workbox.strategies.CacheFirst({
+  new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'json-cache'
   })
 )
 
 workbox.routing.registerRoute(
   /.*\.js/,
-  new workbox.strategies.CacheFirst({
+  new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'js-cache'
   })
 )
 
 workbox.routing.registerRoute(
   /.*\.css/,
-  new workbox.strategies.CacheFirst({
+  new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'css-cache'
   })
 )
 
 workbox.routing.registerRoute(
   /.*\.png/,
-  new workbox.strategies.CacheFirst({
+  new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'png-cache'
   })
 )
 // cache index.html page
 workbox.routing.registerRoute(
   /\/$/,
-  new workbox.strategies.CacheFirst({
+  new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'index-cache'
   })
 )

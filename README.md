@@ -8,6 +8,18 @@ npm install
 
 npm start
 ```
+## Workbox 快取策略
+* 參考: https://developers.google.com/web/tools/workbox/modules/workbox-strategies
+* StaleWhileRevalidate
+* CacheFirst
+* NetworkFirst
+* NetworkOnly
+* CacheOnly
+
+## 快取筆記
+*  快取更新的方式，是看 service-worker.js(sw.js) 檔案是否更新，且會根據 skipWaiting 設定決定是否馬上套用更新
+*  是否馬上更新的條件是，現有工作線程控制零個客戶端(注意，在刷新期間客戶端會重疊)參考: https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#updates
+*  所以要讓用戶一直保持使用最新快取的話，需使用 self.skipWaiting() (sw.js)，使用 workbox的話要於設定開啟("skipWaiting": true)
 
 ## Service Worker 基本流程
 *  參考: https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle
@@ -40,11 +52,6 @@ self.addEventListener('fetch', event => {
   }
 });
 ```
-
-## 快取筆記
-*  快取更新的方式，是看 service-worker.js(sw.js) 檔案是否更新，且會根據 skipWaiting 設定決定是否馬上套用更新
-*  是否馬上更新的條件是，現有工作線程控制零個客戶端(注意，在刷新期間客戶端會重疊)參考: https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#updates
-*  所以要讓用戶一直保持使用最新快取的話，需使用 self.skipWaiting() (sw.js)，使用 workbox的話要於設定開啟("skipWaiting": true)
 
 ## Workbox Cli
 *  文件: https://developers.google.com/web/tools/workbox/modules/workbox-cli
