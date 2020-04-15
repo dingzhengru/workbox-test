@@ -1,6 +1,4 @@
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js")
-
-workbox.precaching.precacheAndRoute(self.__WB_MANIFEST)
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js")
 
 // 在這邊填寫快取部分
 
@@ -57,3 +55,5 @@ self.addEventListener('install', function() {
   // skipWaiting 可以跳過等待，直接套用最新的快取
   self.skipWaiting()
 })
+
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST)

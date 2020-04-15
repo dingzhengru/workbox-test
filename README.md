@@ -56,6 +56,7 @@ self.addEventListener('fetch', event => {
 ## Workbox Cli
 *  文件: https://developers.google.com/web/tools/workbox/modules/workbox-cli
 *  參數設定文件: https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-build
+*  參考別人的經驗: https://letswrite.tw/pwa-workbox-cli/
 *  wizard: 按數個問題回答產生相應的 workbox-config.js(檔案名稱可自訂)
 *  generateSW: Generates a complete service worker for you.
     *  You want to precache files.
