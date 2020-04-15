@@ -9,7 +9,7 @@
     "dev": "parcel ./index.html",
     "build": "parcel build ./index.html",
     "build-sw": "workbox generateSW workbox-config.js",
-    "build-sw-im": "workbox injectManifest workbox-config.js"
+    "build-sw-im": "workbox injectManifest workbox-config-injectManifest.js"
   },
   "repository": {
     "type": "git",
