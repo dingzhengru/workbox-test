@@ -8,7 +8,8 @@
     "start": "node -r esm ./server.js",
     "dev": "parcel ./index.html",
     "build": "parcel build ./index.html",
-    "build-sw": "workbox generateSW workbox-config.js"
+    "build-sw": "workbox generateSW workbox-config.js",
+    "build-sw-im": "workbox injectManifest workbox-config.js"
   },
   "repository": {
     "type": "git",
