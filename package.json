@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node -r esm ./index.js"
+    "start": "node -r esm ./server.js",
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html",
+    "build-sw": "workbox generateSW workbox-config.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +26,8 @@
     "express": "^4.17.1",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
   }
 }

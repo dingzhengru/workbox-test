@@ -116,13 +116,16 @@ define("./sw.js",['./workbox-ad578afd'], function (workbox) { 'use strict';
     "revision": "e32f439a9abb1b28d86c01cdce89db4c"
   }, {
     "url": "index.html",
-    "revision": "2ef6eb65aeceecafc63cd7446e7817fb"
+    "revision": "35082545769ab20762547cb369b2c3e9"
   }, {
     "url": "index.js",
-    "revision": "2cc7643f9c048aa0d7c3bc8d98289dc2"
+    "revision": "849a55f57a202aa695f686bd4d661c3a"
   }, {
     "url": "js/import-01.js",
     "revision": "76131693af2210c342d38f828d3864db"
+  }, {
+    "url": "server.js",
+    "revision": "2cc7643f9c048aa0d7c3bc8d98289dc2"
   }], {});
 
 });

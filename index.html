@@ -7,9 +7,10 @@
   <link rel="manifest" href="./manifest.json">
 </head>
 <body>
-  <h1>work box 123123</h1>
+  <h1>work box 222</h1>
 
 
+<script src="./index.js"></script>
 <script src="./js/import-01.js"></script>
 <script src="../../node_modules/vue/dist/vue.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -17,7 +18,7 @@
   
   import { register } from './node_modules/register-service-worker/index.js'
 
-  if ('serviceWorker' in navigator) {
+  // if ('serviceWorker' in navigator) {
     register(`./sw.js`, {
       ready (registration) {
         console.log('Service worker is active.')
@@ -42,7 +43,7 @@
         console.error('Error during service worker registration:', error)
       }
     })
-  }
+  // }
   // Check that service workers are supported
   // if ('serviceWorker' in navigator) {
 
