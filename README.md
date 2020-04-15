@@ -64,8 +64,9 @@ self.addEventListener('fetch', event => {
 ```bash
 npm install workbox-cli --global
 
-# generateSW
 workbox wizard
+
+# generateSW
 workbox generateSW path/to/config.js
 
 # injectManifest
