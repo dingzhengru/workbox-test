@@ -82,12 +82,26 @@ workbox injectManifest path/to/config.js
   }
 }
 ```
+## 跨網域資源(cors)
+*  需於 script 加上 ```crossorigin="anonymous"```
+
+``` xml
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  crossorigin="anonymous"></script>
+```
 
 ## fetch 通用寫法
 *  從 cdn 這種寫法也能通
 *  參考以前自己的練習: https://github.com/dingzhengru/Service-Worker-test/blob/master/service-worker.js
 ```js
 self.addEventListener('fetch', event => {
+
+  // const url = new URL(event.request.url)
+
+  // 對此網域以外的資源(cors)
+  // if(url.origin != location.origin){}
+
   event.respondWith(async function() {
       // 嘗試從 cache 找出對應的 response
       const cachedResponse = await caches.match(event.request)

@@ -15,8 +15,11 @@
 <script src="../../node_modules/vue/dist/vue.min.js"></script>
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"
+  crossorigin="anonymous"></script>
+
 
 <script>
   $('body').append(123)
@@ -26,8 +29,9 @@
   
   import { register } from './node_modules/register-service-worker/index.js'
 
-  // if ('serviceWorker' in navigator) {
-    register(`./sw.js`, {
+    const sw = './_sw-mine.js'
+
+    register(sw, {
       ready (registration) {
         console.log('Service worker is active.')
       },
@@ -51,7 +55,6 @@
         console.error('Error during service worker registration:', error)
       }
     })
-  // }
   // Check that service workers are supported
   // if ('serviceWorker' in navigator) {
 

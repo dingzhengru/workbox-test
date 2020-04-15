@@ -152,22 +152,25 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url)
 
-  // console.log(url.origin, url.pathname)
+  console.log(url.origin, url.pathname)
 
+  // 對此網域以外的資源(cors)
   if(url.origin != location.origin) {
-    console.log('fetch', url.pathname, event.request)
+
+    console.log('fetch cors')
 
     // 這種寫法，對 cors 的也OK
     event.respondWith(async function() {
-        console.log('event.request', event.request)
-
         // Try to get the response from a cache.
         const cachedResponse = await caches.match(event.request)
         // Return it if we found one.
         if (cachedResponse) {
-          console.log('cachedResponse', cachedResponse)
+          console.log('cache success', cachedResponse)
           return cachedResponse
         }
+
+        console.log('cache fail')
+
         // If we didn't find a match in the cache, use the network.
         return fetch(event.request)
     }())
