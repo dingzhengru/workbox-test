@@ -60,6 +60,7 @@ self.addEventListener('fetch', event => {
     *  You have more complex needs in terms of routing.
     *  You would like to use your service worker with other API's (e.g. Web Push).
 *  copyLibraries: Copy the Workbox libraries into a directory.
+*  用於專案 build 可以將此命令跟原本的 bulid 命令結合
 
 ```bash
 npm install workbox-cli --global
@@ -71,4 +72,14 @@ workbox generateSW path/to/config.js
 
 # injectManifest
 workbox injectManifest path/to/config.js
+
+```
+
+```js
+// package.json
+{
+  "scripts": {
+    "build": "my-build-script && workbox <mode> <path/to/config.js>"
+  }
+}
 ```
